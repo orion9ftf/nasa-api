@@ -1,0 +1,32 @@
+<h1>NASA API</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th></th>
+      <th>Nombre</th>
+      <th></th>
+      <th>Rover id</th>
+      <th></th>
+      <th scope="col">Cámara</th>
+      <th></th>
+      <th scope="col">Imagen</th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= @response.each do |response| %>
+    <tr>
+      <td scope="row"><%= response["id"] %></td>
+      <td></td>
+      <td><%= response["camera"]["name"] %></td>
+      <td></td>
+      <td><%= response["camera"]["rover_id"] %></td>
+      <td></td>
+      <td><%= response["camera"]["full_name"] %></td>
+      <td></td>
+      <td><%= image_tag response["img_src"], style: 'width:320px; height:200px;' %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
